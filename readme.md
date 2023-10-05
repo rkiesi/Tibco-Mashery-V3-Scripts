@@ -1,3 +1,7 @@
+# What is an API and how to secure it?
+
+Here is a nice, condensed summary of the topic: [REST API Security Essentials](https://dzone.com/refcardz/rest-api-security-1?utm_campaign=APISecurity%20newsletter&utm_medium=email&_hsmi=209205925&_hsenc=p2ANqtz-8YY0znOLBVIaYFIFRQ54YBKVsKyuAx_WpZdDb1laM8C69eTFLiHVPvM-ukYU0zhPQu4uZKECjdCQmnC4rVoGhBo4LS7Q&utm_content=209185698&utm_source=hs_email).
+
 # TIBCO Cloud API-Management - Masher v3 Admin API
 
 *TIBCO Cloud API-Management* and *TIBCO Cloud API-Management Local Edition* (formerly known as Mashery) provide an administrative API to register service, users and client applications and managing platform infrastructure parameters. To be able to automate those platform managments to synchronize settings or registered services between different systems, e.g. to expose newly hosted REST services, I strated to create some Linux CLI (bash) scripts.
@@ -40,7 +44,33 @@ With all that details configured in file *apim-v3-config.sh* one can start the a
 
 ## apim-v3-members.sh
 
-This is 
+Sample API call to retrieve all configured memebers (users of the area). - With *jq* one could extract IDs for subsequent calls...
 
-## apim-v3-members.sh
+## apim-v3-roles.sh
 
+Sample API call to retrieve all configured roles.
+
+## apim-v3-services.sh
+
+Sample API call to retrieve all configured API services.
+
+## apim-v3-services-add.sh
+
+Template for registering a new API service from a JSON file (Mashery API description).
+
+## apim-v3-transform-interactive-oas-doc.sh
+
+Mashery v3 API to convert a Sagger API specification into a Mashery proprietary IODocs specification. Idea was to use that to register new API services...
+
+## apim-v3-transform-swagger.sh
+
+Mashery v3 API to change endpoint information of an API specification file (Swagger 2.0). Transformed API specifications could be the base of an API Documentation. Only any added endpoint security must be added via the API documentation editor.
+
+
+# The Missbehaving API
+
+For my demo purposes I also need an API service that can be hosted somewhere and can be called from a simulated client application through TIBCO API-Management (SaaS or Local Edition). In my test setup I just uploaded the API specification to *TIBCO Cloud Integration* API Creation and Mockup services and started a simple Mockup service from it.
+
+Idea of the Missbehaving API is to have an API service that can be instructed to *missbehave* according to parameters of an API call. Using this one can get the capability to test any protections configured on the API-Managemet layer (for API gateways). An example: backend timeout - max. time for a downstream API service to reply to a client. The API gateway can enforce a maximum wait time and reply with an error if the downstream service becomes to slow.
+
+A similar things can be achieved by using services like [https://reqbin.com/](https://reqbin.com/)], but I wanted to have something that I can use without Internet access as well.
