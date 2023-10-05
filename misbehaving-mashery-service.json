@@ -1,0 +1,100 @@
+{
+  "name": "MisbehavinSampleService",
+  "version": "1.0.1",
+  "cache": {
+    "cacheTtl": 0
+  },
+  "description": "",
+  "roles": null,
+  "created": "2022-06-28T19:50:32.000+0000",
+  "qpsLimitOverall": 0,
+  "robotsPolicy": "",
+  "rfc3986Encode": false,
+  "securityProfile": {
+    "oauth": null
+  },
+  "endpoints": [
+    {
+      "name": "MisbehavinSampleService.randomdelayservice",
+      "methods": [],
+      "cache": {
+        "clientSurrogateControlEnabled": false,
+        "contentCacheKeyHeaders": []
+      },
+      "requestProtocol": "rest",
+      "processor": {
+        "adapter": "",
+        "preInputs": {},
+        "postInputs": {},
+        "postProcessEnabled": false,
+        "preProcessEnabled": false
+      },
+      "requestPathAlias": "/example/misbheaving",
+      "publicDomains": [
+        {
+          "address": "api.apidemo.spdns.org"
+        }
+      ],
+      "systemDomains": [
+        {
+          "address": "eu-west-1.integration.cloud.tibcoapps.com:443"
+        }
+      ],
+      "outboundTransportProtocol": "https",
+      "inboundSslRequired": false,
+      "connectionTimeoutForSystemDomainRequest": 2,
+      "trafficManagerDomain": "api.apidemo.spdns.org",
+      "outboundRequestTargetPath": "/gb6vbauddiossciatnkvskl2bgcwjpdv/randomdelayservice",
+      "outboundRequestTargetQueryParameters": "",
+      "connectionTimeoutForSystemDomainResponse": 5,
+      "apiKeyValueLocationKey": "api_key",
+      "dropApiKeyFromIncomingCall": true,
+      "forceGzipOfBackendCall": false,
+      "hostPassthroughIncludedInBackendCallHeader": false,
+      "headersToExcludeFromIncomingCall": [
+        "X-Forewarded-For"
+      ],
+      "useSystemDomainCredentials": false,
+      "highSecurity": false,
+      "systemDomainCredentialKey": "",
+      "allowMissingApiKey": false,
+      "systemDomainCredentialSecret": "",
+      "numberOfHttpRedirectsToFollow": 0,
+      "oauthGrantTypes": [],
+      "systemDomainAuthentication": null,
+      "cors": {
+        "maxAge": 0,
+        "allDomainsEnabled": true,
+        "domainsAllowed": [],
+        "subDomainMatchingAllowed": false,
+        "headersAllowed": [],
+        "headersExposed": [],
+        "cookiesAllowed": false
+      },
+      "apiMethodDetectionLocations": [
+        "request-path"
+      ],
+      "supportedHttpMethods": [
+        "get"
+      ],
+      "cookiesDuringHttpRedirectsEnabled": false,
+      "jsonpCallbackParameter": "",
+      "jsonpCallbackParameterValue": "",
+      "gzipPassthroughSupportEnabled": false,
+      "apiMethodDetectionKey": "",
+      "requestAuthenticationType": "apiKey",
+      "apiKeyValueLocations": [
+        "request-parameters"
+      ],
+      "customRequestAuthenticationAdapter": null,
+      "forwardedHeaders": [
+        "mashery-service-id"
+      ],
+      "returnedHeaders": [
+        "mashery-responder"
+      ],
+      "scheduledMaintenanceEvent": null
+    }
+  ]
+}
+

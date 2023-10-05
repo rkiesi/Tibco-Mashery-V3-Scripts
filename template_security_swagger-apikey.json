@@ -1,0 +1,15 @@
+{
+  "securityDefinitions": {
+    "Simple API Key": {
+      "name": "api_key",
+      "type": "apiKey",
+      "in": "query",
+      "description": "This security schema requires presense of a query paramter with key \"api_key\" and value of the appropriate, individual identifier of a registered client app (plan key)."
+    }
+  },
+  "security": [
+    {
+      "Simple API Key": []
+    }
+  ]
+}

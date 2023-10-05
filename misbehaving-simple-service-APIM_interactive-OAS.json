@@ -1,0 +1,67 @@
+{
+  "definitions": {
+    "schema1": {
+      "properties": {
+        "delay": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "info": {
+    "description": "Simple REST Trigger",
+    "title": "New_Flogo_App_3",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/randomdelayservice": {
+      "get": {
+        "operationId": "get_randomdelayservice",
+        "parameters": [
+          {
+            "description": "Request parameter",
+            "in": "query",
+            "name": "delay",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/schema1"
+            }
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "503": {
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "RandomDelayOp_GET"
+      }
+    }
+  },
+  "swagger": "2.0",
+  "host": "api.apidemo.spdns.org",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/samples/misbheaving"
+}
+
