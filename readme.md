@@ -23,6 +23,8 @@ Additional tools needed are:
 
 That shell script just defines some environment variables needed by other scripts. Those settings are the target API-Management system to talk to as well as the required credentials to get an access token for calling the needed APIs.
 
+> Please copy the provided template and save your personal config as `apim-v3-config.sh`. The scripts are looking for that file by default.
+
 ## apim-v3-authentication.sh
 
 As the TIBCO Cloud API-Management (aka Mashery) is hosting **one central V3 API** service for all hosted APIM Areas (customer clusters) one needs a user on the Mashery cloud management system. Typically that is a user registered via an API Developer Portal on one of the hosted domains (in my case https://scdach.mashery.com). The user must be configured to be a "Service Account"
