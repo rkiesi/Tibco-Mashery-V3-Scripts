@@ -14,6 +14,8 @@ The used API-Management administrative APIs are documented and described in deta
 
 For details on how to register an TIBCO Cloud API-Management (Mashery) managed API manually via the Web-UI you can find a short how-to guide at [How to create an API in TIBCO Mashery](https://rsdigitech.com/posts/how-to-create-an-api-in-tibco-mashery). For more details please consult the product documentation and use the online product training or TIBCO's Youtube ressources.
 
+There are also examples available to use the Mashery v3 API from TIBCO's lightweight integration tooling Flogo. Especially the token handling in Flogo context needs some know how. A GoLang implementation of a suitable Flogo Plugin is freely available at [Flogo Mash Token](https://github.com/project-flogo/tibco-contrib/tree/master/activity/mashtoken).
+
 ## Prerequisites
 
 All scripts are built for Linux systems. At least WSL2 (Ubuntu) or plain Linux system is needed. A headless server system is sufficient (no GUI applications).
