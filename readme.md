@@ -4,28 +4,30 @@ Here is a nice, condensed summary of the topic: [REST API Security Essentials](h
 
 # TIBCO Cloud API-Management - Masher v3 Admin API
 
-*TIBCO Cloud API-Management* and *TIBCO Cloud API-Management Local Edition* (formerly known as Mashery) provide an administrative API to register service, users and client applications and managing platform infrastructure parameters. To be able to automate those platform managments to synchronize settings or registered services between different systems, e.g. to expose newly hosted REST services, I strated to create some Linux CLI (bash) scripts.
+*TIBCO Cloud API-Management* and *TIBCO Cloud API-Management Local Edition* (formerly known as Mashery) provide an administrative API to register service, users and client applications and managing platform infrastructure parameters. To be able to automate those platform managements to synchronize settings or registered services between different systems, e.g. to expose newly hosted REST services, I started to create some Linux CLI (bash) scripts.
 
-These scripts were originally created for repeatable demo sessions with prospects as well as samples for existing customers. At the current state its not a full set of tools for all needs, but they should give enoough inspiration and sample to create other features in a similar way.
+These scripts were originally created for repeatable demo sessions with prospects as well as samples for existing customers. At the current state its not a full set of tools for all needs, but they should give enough inspiration and sample to create other features in a similar way.
 
-The used API-Managament administrative APIs are documented and described in detail at [Mashery Developer Portal](https://developer.mashery.com/). This Developer Portal is the user interaction point
+The used API-Management administrative APIs are documented and described in detail at [Mashery Developer Portal](https://developer.mashery.com/). The orginal Mashery Developer Portal is the user interaction point for managing TIBCO CLoud API-Management SaaS. In case of a TIBCO Cloud API-Managment Local Edition (aka Mashery Local) the API Portal is hosted part of the hosted API-Management Cluster and has its own URL.
+
+> :exclamation: The scripts are a sample or template for how the Mashery v3 API functions can be used for automating things using the CLI. They are by no means complete and ready to use. Please feel free to copy and extend the samples.
 
 ## Prerequisites
 
 All scripts are built for Linux systems. At least WSL2 (Ubuntu) or plain Linux system is needed. A headless server system is sufficient (no GUI applications).
 Additional tools needed are:
-* curl - to communitate via HTTPS with TIBCO API-Management
-* jq - to read, validate and transform JSON documents
+* [curl](https://curl.se/) - to communicate via HTTPS with TIBCO API-Management
+* [jq](https://jqlang.github.io/jq/) - to read, validate and transform JSON documents (Mashery v3 API replies)
 
 ## apim-v3-config.sh
 
-That shell script just defines some envionment variables needed by other scripts. Those settings are the arget API-Managment system to talk to as well as the required credentials to get an access token for calling the needed APIs.
+That shell script just defines some environment variables needed by other scripts. Those settings are the target API-Management system to talk to as well as the required credentials to get an access token for calling the needed APIs.
 
 ## apim-v3-authentication.sh
 
-As the TIBCO Cloud API-Managment (aka Mashery) is hosting **one central V3 API** service for all hosted APIM Areas (customer clusters) one needs a user on the Mashery cloud management system. Typically that is a user registered via an API Developer Portal on one of the hosted domains (in my case https://scdach.mashery.com). The user must be configured to be a "Service Account"
+As the TIBCO Cloud API-Management (aka Mashery) is hosting **one central V3 API** service for all hosted APIM Areas (customer clusters) one needs a user on the Mashery cloud management system. Typically that is a user registered via an API Developer Portal on one of the hosted domains (in my case https://scdach.mashery.com). The user must be configured to be a "Service Account"
 
-After login to [Mashery Developer Portal](https://developer.mashery.com/) the next step is the registration of an Mashery V3 API Cliente at [https://developer.mashery.com/apps/register](https://developer.mashery.com/apps/register).
+After login to [Mashery Developer Portal](https://developer.mashery.com/) the next step is the registration of an Mashery V3 API client at [https://developer.mashery.com/apps/register](https://developer.mashery.com/apps/register).
 
 Now we have two sets of credentials:
 * API Developer (interactive) User Account (username + password)
@@ -33,7 +35,7 @@ Now we have two sets of credentials:
 
 A short notice how to get a service account is available here [Steps to access Mashery V2/V3 APIs for TIBCO cloud accounts](https://support.tibco.com/s/article/Steps-to-access-Mashery-V2-V3-APIs-for-TIBCO-cloud-accounts).
 
-With all that details configured in file *apim-v3-config.sh* one can start the authentication procedure: `./apim-v-authenticate.sh` As result a new file will be created which hold the OAuth2 access token along with its validity periode. Depending if the validity periode of an available token is already met, the output should be similar to:
+With all that details configured in file *apim-v3-config.sh* one can start the authentication procedure: `./apim-v-authenticate.sh` As result a new file will be created which hold the OAuth2 access token along with its validity period. Depending if the validity period of an available token is already met, the output should be similar to:
 
 ```
 [INFO] Reading access token from file
@@ -44,7 +46,7 @@ With all that details configured in file *apim-v3-config.sh* one can start the a
 
 ## apim-v3-members.sh
 
-Sample API call to retrieve all configured memebers (users of the area). - With *jq* one could extract IDs for subsequent calls...
+Sample API call to retrieve all configured members (users of the area). - With *jq* one could extract IDs for subsequent calls...
 
 ## apim-v3-roles.sh
 
@@ -67,10 +69,10 @@ Mashery v3 API to convert a Sagger API specification into a Mashery proprietary 
 Mashery v3 API to change endpoint information of an API specification file (Swagger 2.0). Transformed API specifications could be the base of an API Documentation. Only any added endpoint security must be added via the API documentation editor.
 
 
-# The Missbehaving API
+# The Misbehaving API
 
 For my demo purposes I also need an API service that can be hosted somewhere and can be called from a simulated client application through TIBCO API-Management (SaaS or Local Edition). In my test setup I just uploaded the API specification to *TIBCO Cloud Integration* API Creation and Mockup services and started a simple Mockup service from it.
 
-Idea of the Missbehaving API is to have an API service that can be instructed to *missbehave* according to parameters of an API call. Using this one can get the capability to test any protections configured on the API-Managemet layer (for API gateways). An example: backend timeout - max. time for a downstream API service to reply to a client. The API gateway can enforce a maximum wait time and reply with an error if the downstream service becomes to slow.
+Idea of the Misbehaving API is to have an API service that can be instructed to *misbehave* according to parameters of an API call. Using this one can get the capability to test any protections configured on the API-Management layer (for API gateways). An example: backend timeout - max. time for a downstream API service to reply to a client. The API gateway can enforce a maximum wait time and reply with an error if the downstream service becomes to slow.
 
-A similar things can be achieved by using services like [https://reqbin.com/](https://reqbin.com/)], but I wanted to have something that I can use without Internet access as well.
+A similar things can be achieved by using services like [https://reqbin.com/](https://reqbin.com/), but I wanted to have something that I can use without Internet access as well.

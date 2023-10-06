@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # author:  rkiessli, TIBCO Software (SC_DACH)
-# changed: 2022-06-29
+# changed: 2023-10-05
 
 # Get APIM Cluster Parameters
 if [ -n "${1}" ]; then
@@ -27,6 +27,7 @@ if [[ -z "${ADMAPI_ACCESSTOKEN}" || ${ADMAPI_ACCESSTOKEN_EPOCH} < $(( $(date +%s
 
   echo "[INFO] Acquiring new API v3 access token for user ${ADMAPI_USERNAME}"
 
+# for debugging, show me the complete command
 #  echo "\
 #  curl --insecure --location --request POST \
 #  --url \"https://${ADMAPI_APIHOST}${ADMAPI_BASEPATH}/token\" \
