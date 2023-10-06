@@ -12,6 +12,8 @@ The used API-Management administrative APIs are documented and described in deta
 
 > :exclamation: The scripts are a sample or template for how the Mashery v3 API functions can be used for automating things using the CLI. They are by no means complete and ready to use. Please feel free to copy and extend the samples.
 
+For details on how to register an TIBCO Cloud API-Management (Mashery) managed API manually via the Web-UI you can find a short how-to guide at [How to create an API in TIBCO Mashery](https://rsdigitech.com/posts/how-to-create-an-api-in-tibco-mashery). For more details please consult the product documentation and use the online product training or TIBCO's Youtube ressources.
+
 ## Prerequisites
 
 All scripts are built for Linux systems. At least WSL2 (Ubuntu) or plain Linux system is needed. A headless server system is sufficient (no GUI applications).
