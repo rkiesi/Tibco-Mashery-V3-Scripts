@@ -50,6 +50,8 @@ With all that details configured in file *apim-v3-config.sh* one can start the a
 [INFO] TOKEN VALID UNTIL: Thu Oct  5 16:03:03 CEST 2023 (epoch: 1696514583)
 ```
 
+**Hint:** Testing of Mashery V3 API can also be done via the Swagger-UI of the TIBCO Cloud API-Management Developer Portal - [Interactive Docs](https://developer.mashery.com/io-docs) OR by using the public Postman collection available at [TIBCO Mashery's Public Workspace](https://www.postman.com/tibcomashery/workspace/tibco-mashery-s-public-workspace/overview). The Potsman collection could also be donwloaded and used with a local Postman instance for personal developer tests.
+
 ## apim-v3-members.sh
 
 Sample API call to retrieve all configured members (users of the area). - With *jq* one could extract IDs for subsequent calls...
