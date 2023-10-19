@@ -81,4 +81,4 @@ For my demo purposes I also need an API service that can be hosted somewhere and
 
 Idea of the Misbehaving API is to have an API service that can be instructed to *misbehave* according to parameters of an API call. Using this one can get the capability to test any protections configured on the API-Management layer (for API gateways). An example: backend timeout - max. time for a downstream API service to reply to a client. The API gateway can enforce a maximum wait time and reply with an error if the downstream service becomes to slow.
 
-A similar things can be achieved by using services like [https://reqbin.com/](https://reqbin.com/), but I wanted to have something that I can use without Internet access as well.
+A similar things can be achieved by using services like [https://github.com/postmanlabs/httpbin](https://github.com/postmanlabs/httpbin), but I wanted to have something that I can use without Internet access as well. Another test service collection could be [https://reqbin.com/](https://reqbin.com/).
