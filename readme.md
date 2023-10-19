@@ -4,9 +4,9 @@ Here is a nice, condensed summary of the topic: [REST API Security Essentials](h
 
 # TIBCO Cloud API-Management - Masher v3 Admin API
 
-*TIBCO Cloud API-Management* and *TIBCO Cloud API-Management Local Edition* (formerly known as Mashery) provide an administrative API to register service, users and client applications and managing platform infrastructure parameters. To be able to automate those platform managements to synchronize settings or registered services between different systems, e.g. to expose newly hosted REST services, I started to create some Linux CLI (bash) scripts.
+*TIBCO Cloud API-Management* and *TIBCO Cloud API-Management Local Edition* (formerly known as Mashery) provides an administrative API to register service, users and client applications and managing platform infrastructure parameters. It can be used to automate platform management activities, to synchronize settings or registered services between different systems. Examples might be exposing newly hosted REST services from a CD process. To accomplish this, I started to create some Linux CLI (bash) scripts.
 
-These scripts were originally created for repeatable demo sessions with prospects as well as samples for existing customers. At the current state its not a full set of tools for all needs, but they should give enough inspiration and sample to create other features in a similar way.
+These scripts were originally created for repeatable demo sessions with prospects as well as samples for existing customers. At the current state its not a full set of tools for all needs, but they should give enough inspiration and exsamples to create other features in a similar way as needed.
 
 The used API-Management administrative APIs are documented and described in detail at [Mashery Developer Portal](https://developer.mashery.com/). The orginal Mashery Developer Portal is the user interaction point for managing TIBCO CLoud API-Management SaaS. In case of a TIBCO Cloud API-Managment Local Edition (aka Mashery Local) the API Portal is hosted part of the hosted API-Management Cluster and has its own URL.
 
